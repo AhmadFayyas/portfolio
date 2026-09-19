@@ -63,6 +63,18 @@
 
         .page-footer { border-top: 1px solid #e3e7ee; }
 
+        /* Portfolio tiles — source images have very different native ratios
+           (2.70, 2.04, 1.50), so force a common 16:9 box and crop to fill.
+           All three have their logo central enough to survive the trim. */
+        #portfolio .img-wrapper { overflow: hidden; }
+        #portfolio .img-wrapper img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: center;
+        }
+
         /* Portfolio hover overlay — theme pins content to top:0 then shifts it
            up by half its height, so taller content spills outside the tile. */
         #portfolio .img-wrapper .overlay .overlay-infos {
@@ -328,7 +340,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="img-wrapper">
-                        <img src="assets/imgs/talabat_work.jpeg" alt="talabat">
+                        <img src="assets/imgs/talabat.png" alt="talabat">
                         <div class="overlay">
                             <div class="overlay-infos">
                                 <h5>talabat</h5>
@@ -362,7 +374,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="img-wrapper">
-                        <img src="assets/imgs/opensooq_work2.avif" alt="OpenSooq">
+                        <img src="assets/imgs/opensooq.webp" alt="OpenSooq">
                         <div class="overlay">
                             <div class="overlay-infos">
                                 <h5>OpenSooq</h5>
