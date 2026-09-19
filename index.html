@@ -49,6 +49,120 @@
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
     <!-- Bootstrap + Steller main styles -->
     <link rel="stylesheet" href="assets/css/steller.css">
+
+    <style>
+        /* Alternating section bands.
+           Sections run: about · focus · now · portfolio · recognition ·
+           certifications · testimonials · writing · footer
+           Every other one carries .band. If you add or remove a section,
+           shift the .band classes below it so the alternation holds. */
+        /* Specificity note: steller.css sets `.section:nth-child(even) { background: white }`
+           (0,2,0), which beats a plain `.band` (0,1,0). `section.section.band` is 0,2,1
+           and comes later in source order, so it wins reliably regardless of position. */
+        section.section.band { background-color: #eef1f6; }
+
+        .page-footer { border-top: 1px solid #e3e7ee; }
+
+        /* Portfolio hover overlay — theme pins content to top:0 then shifts it
+           up by half its height, so taller content spills outside the tile. */
+        #portfolio .img-wrapper .overlay .overlay-infos {
+            top: 50%;
+            width: 100%;
+            padding: 0 26px;
+        }
+        #portfolio .img-wrapper .overlay .overlay-infos p {
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 6px 0 10px;
+        }
+
+        /* Recognition */
+        #recognition .rec-card { border: 0; }
+        #recognition .rec-heading {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: .75;
+            margin: 0;
+        }
+        #recognition .rec-item { display: flex; align-items: flex-start; }
+        #recognition .rec-icon {
+            font-size: 34px;
+            margin-right: 20px;
+            opacity: .85;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+        #recognition .rec-item h5 {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        #recognition .rec-lead {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        #recognition .rec-sub {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: .9;
+            margin-bottom: 0;
+        }
+        #recognition .rec-stars {
+            color: #FAD02C;
+            letter-spacing: 2px;
+            margin-right: 4px;
+        }
+        #recognition a { color: #fff; text-decoration: underline; }
+        #recognition a:hover { color: #FAD02C; }
+
+        /* "Currently" section */
+        #now .now-icon {
+            font-size: 22px;
+            color: #1F3864;
+            margin-right: 16px;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+        #now .now-thumb {
+            width: 78px;
+            max-height: 110px;
+            object-fit: contain;
+            margin-right: 18px;
+            flex-shrink: 0;
+            border-radius: 3px;
+        }
+        #now .now-kind {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #8a8a8a;
+        }
+        #now .card {
+            transition: box-shadow .2s ease, transform .2s ease;
+        }
+        #now .card:hover {
+            box-shadow: 0 6px 22px rgba(31, 56, 100, .10);
+            transform: translateY(-2px);
+        }
+        #now .now-links a {
+            display: inline-block;
+            font-size: 13px;
+            padding: 4px 11px;
+            margin: 0 6px 6px 0;
+            border: 1px solid #dfe3ea;
+            border-radius: 40px;
+            color: #1F3864;
+            text-decoration: none;
+        }
+        #now .now-links a:hover {
+            background: #1F3864;
+            border-color: #1F3864;
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
@@ -66,6 +180,7 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#focus">Focus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#now">Currently</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
                     <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
@@ -129,24 +244,18 @@
                         them from both sides. That combination is the part I find most useful day to day: the
                         framework is a choice rather than a ceiling, and when a problem needs platform channels,
                         background location or a look at what Instruments is actually reporting, I can go there.</p>
-                    <p>I write, too. <a href="https://stackoverflow.com/users/5501940/ahmad-f" target="_blank"
-                            rel="noopener noreferrer">31.8k reputation on Stack Overflow</a> across 678 answers, gold
-                        badges in Swift and iOS, and a Recognized Member of the Mobile Development Collective. Nine
-                        published technical articles on Flutter, Dart and Swift. Explaining things clearly turns out
-                        to be most of the job.</p>
-                    <p class="mt-4 mb-0"><strong>Get in touch</strong> &mdash;
-                        <a href="mailto:ahmadfayyas101@gmail.com">ahmadfayyas101@gmail.com</a>
-                        &nbsp;·&nbsp; Dubai, United Arab Emirates</p>
-
-                    <a class="btn btn-primary rounded mt-3" href="Ahmad_Fayyas_CV.pdf" target="_blank"
-                        rel="noopener noreferrer">DOWNLOAD RESUME</a>
+                    <p>I write, too. My <a href="https://stackoverflow.com/users/5501940/ahmad-f" target="_blank"
+                            rel="noopener noreferrer">Stack Overflow answers</a> have reached millions of developers,
+                        with gold badges in Swift and iOS and a Recognized Member spot in the Mobile Development
+                        Collective, alongside published technical articles on Flutter, Dart and Swift. Explaining
+                        things clearly turns out to be most of the job.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Focus areas -->
-    <section id="focus" class="section" style="background-color: #f6f6f6;">
+    <section id="focus" class="section band">
         <div class="container text-center">
             <h6 class="subtitle">Focus</h6>
             <h6 class="section-title mb-4">What I work on</h6>
@@ -197,8 +306,20 @@
     </section>
     <!-- End of Focus -->
 
+    <!-- Currently -->
+    <section id="now" class="section">
+        <div class="container text-center">
+            <h6 class="subtitle">Currently</h6>
+            <h6 class="section-title mb-2">What has my attention</h6>
+            <p class="mb-5 pb-2"><small id="now-updated" class="text-muted"></small></p>
+
+            <div class="row text-left" id="now-content"></div>
+        </div>
+    </section>
+    <!-- End of Currently -->
+
     <!-- Portfolio section -->
-    <section id="portfolio" class="section">
+    <section id="portfolio" class="section band">
         <div class="container text-center">
             <h6 class="subtitle">Portfolio</h6>
             <h6 class="section-title mb-4">Products I've worked on</h6>
@@ -262,29 +383,49 @@
     <!-- End of portfolio section -->
 
     <!-- Recognition -->
-    <section class="bg-gray p-0 section">
+    <section id="recognition" class="section">
         <div class="container">
-            <div class="card bg-primary">
+            <div class="card bg-primary rec-card">
                 <div class="card-body text-light">
-                    <div class="row align-items-center">
-                        <div class="col-sm-12 text-center text-sm-left">
-                            <h5 class="mt-3">Recognition</h5>
-                            <ul>
-                                <li><a class="nav-link" style="color:#f6f6f6;"
-                                        href="https://stackoverflow.com/users/5501940/ahmad-f" target="_blank"
-                                        rel="noopener noreferrer">Stack Overflow: 31,833 reputation, 678 answers
-                                        reaching 2.5M developers &mdash; top 10 in the UAE.</a></li>
-                                <li><a class="nav-link" style="color:#f6f6f6;"
-                                        href="https://stackoverflow.com/help/badges/4528/swift?userid=5501940"
-                                        target="_blank" rel="noopener noreferrer">Stack Overflow: Swift and iOS gold
-                                        badges, and Recognized Member of the Mobile Development Collective.</a></li>
-                                <li><a class="nav-link" style="color:#f6f6f6;"
-                                        href="https://www.hackerrank.com/AhmadFayyas" target="_blank"
-                                        rel="noopener noreferrer">HackerRank: 5-star gold badges in Problem Solving
-                                        and SQL.</a></li>
-                            </ul>
+
+                    <h6 class="rec-heading text-center">Recognition</h6>
+
+                    <div class="row mt-4">
+                        <div class="col-md-7 mb-4 mb-md-0">
+                            <div class="rec-item">
+                                <i class="ti-stack-overflow rec-icon"></i>
+                                <div>
+                                    <h5><a href="https://stackoverflow.com/users/5501940/ahmad-f" target="_blank"
+                                            rel="noopener noreferrer">Stack Overflow</a></h5>
+                                    <p class="rec-lead">Among the top 10 highest-reputation users in the UAE</p>
+                                    <p class="rec-sub">
+                                        <span class="rec-stars">&#9733;</span> Gold badges in
+                                        <a href="https://stackoverflow.com/help/badges/4528/swift?userid=5501940"
+                                            target="_blank" rel="noopener noreferrer">Swift</a> and
+                                        <a href="https://stackoverflow.com/help/badges/1835/ios?userid=5501940"
+                                            target="_blank" rel="noopener noreferrer">iOS</a><br>
+                                        <span class="rec-stars">&#9733;</span> Recognized Member, Mobile Development
+                                        Collective
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="rec-item">
+                                <i class="ti-cup rec-icon"></i>
+                                <div>
+                                    <h5><a href="https://www.hackerrank.com/AhmadFayyas" target="_blank"
+                                            rel="noopener noreferrer">HackerRank</a></h5>
+                                    <p class="rec-lead">Gold badges in Problem Solving and SQL</p>
+                                    <p class="rec-sub">
+                                        <span class="rec-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -292,7 +433,7 @@
     <!-- End of Recognition -->
 
     <!-- Certifications -->
-    <section id="certifications" class="section" style="background-color: #f6f6f6;">
+    <section id="certifications" class="section band">
         <div class="container text-center">
             <h6 class="subtitle">Certifications</h6>
             <h6 class="section-title mb-4">Credentials</h6>
@@ -412,11 +553,11 @@
     <!-- End of testimonials section -->
 
     <!-- Writing Section -->
-    <section id="blog" class="section">
+    <section id="blog" class="section band">
         <div class="container text-center">
             <h6 class="subtitle">Writing</h6>
             <h6 class="section-title mb-4">Selected articles</h6>
-            <p class="mb-5 pb-4">Nine published pieces on Flutter, Dart and Swift, including in Better Programming.</p>
+            <p class="mb-5 pb-4">Published pieces on Flutter, Dart and Swift, including in Better Programming.</p>
 
             <div class="row text-left">
                 <div class="col-md-4">
@@ -457,14 +598,14 @@
                 </div>
             </div>
 
-            <a class="btn btn-primary rounded mt-2" href="https://medium.com/@ahmadfayyas" target="_blank"
+            <a class="btn btn-primary rounded mt-4" href="https://medium.com/@ahmadfayyas" target="_blank"
                 rel="noopener noreferrer">ALL ARTICLES ON MEDIUM</a>
         </div>
     </section>
     <!-- End of Writing Section -->
 
     <!-- Page Footer -->
-    <footer class="page-footer" style="background-color: #f6f6f6;">
+    <footer class="page-footer">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-6">
@@ -498,6 +639,69 @@
 
     <!-- steller js -->
     <script src="assets/js/steller.js"></script>
+
+    <!-- "Currently" section content — edit now.js to update it -->
+    <script src="now.js"></script>
+    <script>
+        (function () {
+            var section = document.getElementById('now');
+            var mount = document.getElementById('now-content');
+            if (!section || !mount) return;
+
+            var esc = function (s) {
+                return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+                });
+            };
+
+            var card = function (item, kind) {
+                var links = (item.links || []).filter(function (l) { return l && l.url; });
+
+                var linkHtml = links.length
+                    ? '<p class="mb-0 mt-3 now-links">' + links.map(function (l) {
+                        return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">'
+                            + esc(l.label || 'Link') + '</a>';
+                    }).join('') + '</p>'
+                    : '';
+
+                // Use the image when one is supplied; if it fails to load,
+                // swap in the icon so the card never shows a broken image.
+                var fallback = "this.onerror=null;this.outerHTML='&lt;i class=\\'"
+                    + esc(item.icon || 'ti-bookmark-alt') + " now-icon\\'&gt;&lt;/i&gt;';";
+
+                var visual = item.image
+                    ? '<img src="' + esc(item.image) + '" alt="" class="now-thumb" onerror="' + fallback + '">'
+                    : '<i class="' + esc(item.icon || 'ti-bookmark-alt') + ' now-icon"></i>';
+
+                return '<div class="col-md-6 mb-4">' +
+                    '<div class="card border h-100"><div class="card-body">' +
+                      '<div class="d-flex align-items-start">' +
+                        visual +
+                        '<div class="flex-grow-1">' +
+                          '<span class="now-kind">' + esc(kind) + '</span>' +
+                          '<h5 class="card-title mt-1 mb-1">' + esc(item.title) + '</h5>' +
+                          (item.meta ? '<p class="small text-muted mb-2">' + esc(item.meta) + '</p>' : '') +
+                          '<p class="mb-0">' + esc(item.note) + '</p>' +
+                          linkHtml +
+                        '</div>' +
+                      '</div>' +
+                    '</div></div></div>';
+            };
+
+            var d = window.NOW;
+            if (!d) { section.style.display = 'none'; return; }
+
+            var html = '';
+            (d.reading || []).forEach(function (b) { html += card(b, 'Reading'); });
+            (d.exploring || []).forEach(function (t) { html += card(t, 'Exploring'); });
+
+            if (!html) { section.style.display = 'none'; return; }
+            mount.innerHTML = html;
+            if (d.updated) {
+                document.getElementById('now-updated').textContent = 'Updated ' + d.updated;
+            }
+        })();
+    </script>
 
 </body>
 

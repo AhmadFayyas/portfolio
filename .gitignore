@@ -2,3 +2,5 @@
 *.log
 .writetest
 assets/css/steller.css.orange-backup
+
+now.json
